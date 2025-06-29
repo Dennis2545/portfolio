@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dennis Maran - Data Visualization Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+        :root {
+            --dark-blue: #001428;
+            --light-blue: #0084ff;
+            --glow-blue: #00d2ff;
+            --accent-blue: #00a2ff;
+            --glass-bg: rgba(9, 30, 54, 0.65);
+            --glass-border: rgba(0, 132, 255, 0.3);
+            --kenyan-red: #bb0000;
+            --kenyan-green: #00bb00;
+            --kenyan-black: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-blue);
+            color: var(--light-blue);
+            height: 100vh;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 35%, rgba(0, 132, 255, 0.1), transparent 25%),
+                radial-gradient(circle at 80% 65%, rgba(0, 210, 255, 0.1), transparent 35%);
+        }
+
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 80px 1fr;
+            height: 100vh;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 10px),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 15px);
+            pointer-events: none;
+        }
+
+        .header-left h1 {
+            font-size: 2rem;
+            color: var(--glow-blue);
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .header-left .subtitle {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+            letter-spacing: 1px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .kenyan-flag {
+            width: 40px;
+            height: 25px;
+            background: linear-gradient(to bottom, 
+                var(--kenyan-black) 0%, var(--kenyan-black) 16.66%,
+                var(--kenyan-red) 16.66%, var(--kenyan-red) 33.33%,
+                var(--kenyan-green) 33.33%, var(--kenyan-green) 50%,
+                white 50%, white 66.66%,
+                var(--kenyan-red) 66.66%, var(--kenyan-red) 83.33%,
+                var(--kenyan-black) 83.33%, var(--kenyan-black) 100%
+            );
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .stats-container {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            height: fit-content;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 20, 40, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .stat-icon {
+            font-size: 1.5rem;
+            color: var(--glow-blue);
+            margin-bottom: 8px;
+        }
+
+        .stat-number {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--light-blue);
+            margin-bottom: 3px;
+        }
+
+        .stat-label {
+            color: var(--accent-blue);
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-buttons {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(0, 20, 40, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--light-blue);
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: linear-gradient(45deg, var(--accent-blue), var(--glow-blue));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-content {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 10px),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 15px);
+            pointer-events: none;
+        }
+
+        .chart-view {
+            display: none;
+            height: 100%;
+        }
+
+        .chart-view.active {
+            display: block;
+        }
+
+        .chart-title {
+            font-size: 1.5rem;
+            color: var(--light-blue);
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .chart-container {
+            height: calc(100% - 60px);
+            position: relative;
+        }
+
+        .heatmap {
+            display: grid;
+            grid-template-columns: repeat(25, 1fr);
+            gap: 2px;
+            margin: 20px 0;
+            height: 300px;
+        }
+
+        .heatmap-cell {
+            aspect-ratio: 1;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            max-height: 12px;
+        }
+
+        .heatmap-cell:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 8px rgba(0, 210, 255, 0.8);
+        }
+
+        .county-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .county-bar {
+            background: linear-gradient(to right, var(--accent-blue), var(--glow-blue));
+            height: 25px;
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .county-bar:hover {
+            transform: scaleY(1.2);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+        }
+
+        .county-label, .county-value {
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .light-trail {
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--glow-blue), transparent);
+            animation: light-run 3s linear infinite;
+        }
+
+        @keyframes light-run {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-container {
+                grid-template-columns: 250px 1fr;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .stat-card {
+                padding: 10px;
+            }
+            
+            .stat-icon {
+                font-size: 1.2rem;
+            }
+            
+            .stat-number {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 60px auto 1fr;
+            }
+            
+            .sidebar {
+                flex-direction: row;
+                gap: 15px;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+            
+            .nav-buttons {
+                display: flex;
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .nav-btn {
+                margin-bottom: 0;
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+            
+            .header-left h1 {
+                font-size: 1.5rem;
+            }
+            
+            .header-left .subtitle {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-buttons {
+                flex-wrap: wrap;
+            }
+            
+            .nav-btn {
+                flex: 1;
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="floating-particles"></canvas>
+    
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>DENNIS MARAN</h1>
+                <div class="subtitle">Data Visualization Dashboard</div>
+            </div>
+            <div class="header-right">
+                <span>🇰🇪 Kenya Tech Analytics</span>
+                <div class="kenyan-flag"></div>
+            </div>
+            <div class="light-trail"></div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Statistics -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-code"></i></div>
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Coding</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Clients</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Satisfaction</div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <div class="nav-btn active" data-view="techEcosystem">
+                    <i class="fas fa-rocket"></i> Tech Ecosystem
+                </div>
+                <div class="nav-btn" data-view="skills">
+                    <i class="fas fa-brain"></i> Skills Radar
+                </div>
+                <div class="nav-btn" data-view="counties">
+                    <i class="fas fa-map"></i> County Development
+                </div>
+                <div class="nav-btn" data-view="timeline">
+                    <i class="fas fa-clock"></i> Project Timeline
+                </div>
+                <div class="nav-btn" data-view="mobileMoney">
+                    <i class="fas fa-mobile-alt"></i> Mobile Money
+                </div>
+                <div class="nav-btn" data-view="heatmap">
+                    <i class="fas fa-calendar"></i> Coding Activity
+                </div>
+                <div class="nav-btn" data-view="kenyaMap">
+                    <i class="fas fa-globe-africa"></i> Kenya Counties
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Tech Ecosystem View -->
+            <div class="chart-view active" id="techEcosystem">
+                <div class="chart-title">🇰🇪 Kenya Tech Ecosystem Growth</div>
+                <div class="chart-container">
+                    <canvas id="techEcosystemChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Skills View -->
+            <div class="chart-view" id="skills">
+                <div class="chart-title">Technical Skills Radar</div>
+                <div class="chart-container">
+                    <canvas id="skillsRadarChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Counties View -->
+            <div class="chart-view" id="counties">
+                <div class="chart-title">Kenya County Development Index</div>
+                <div class="chart-container">
+                    <canvas id="countyDevelopmentChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Timeline View -->
+            <div class="chart-view" id="timeline">
+                <div class="chart-title">Project Completion Timeline</div>
+                <div class="chart-container">
+                    <canvas id="projectTimelineChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Mobile Money View -->
+            <div class="chart-view" id="mobileMoney">
+                <div class="chart-title">🇰🇪 Mobile Money Usage Distribution</div>
+                <div class="chart-container">
+                    <canvas id="mobileMoneyChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Heatmap View -->
+            <div class="chart-view" id="heatmap">
+                <div class="chart-title">Coding Activity Heatmap (Last 365 Days)</div>
+                <div class="chart-container">
+                    <div id="codingHeatmap" class="heatmap"></div>
+                    <div style="text-align: center; margin-top: 15px; font-size: 0.8rem; color: var(--accent-blue);">
+                        <span style="color: rgba(0, 132, 255, 0.3);">Less</span>
+                        <span style="margin: 0 10px;">■ ■ ■ ■ ■</span>
+                        <span style="color: var(--glow-blue);">More</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kenya Map View -->
+            <div class="chart-view" id="kenyaMap">
+                <div class="chart-title">🇰🇪 Kenya Counties - Digital Transformation Index</div>
+                <div class="chart-container">
+                    <div class="county-bars" id="kenyaCountiesMap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        function initNavigation() {
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const chartViews = document.querySelectorAll('.chart-view');
+            
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetView = this.getAttribute('data-view');
+                    
+                    // Remove active class from all buttons and views
+                    navBtns.forEach(b => b.classList.remove('active'));
+                    chartViews.forEach(v => v.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding view
+                    this.classList.add('active');
+                    document.getElementById(targetView).classList.add('active');
+                });
+            });
+        }
+
+        // Initialize particles background
+        function initParticles() {
+            const canvas = document.querySelector('.floating-particles');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2 + 1,
+                    color: `rgba(0, ${Math.floor(132 + Math.random() * 78)}, ${Math.floor(200 + Math.random() * 55)}, ${Math.random() * 0.3 + 0.1})`,
+                    speedX: Math.random() * 0.3 - 0.15,
+                    speedY: Math.random() * 0.3 - 0.15
+                });
+            }
+            
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+                    
+                    if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+                    if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+                    
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = particle.color;
+                    ctx.fill();
+                });
+            }
+            
+            animate();
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Chart creation functions
+        function createTechEcosystemChart() {
+            const ctx = document.getElementById('techEcosystemChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: 'Tech Startups',
+                        data: [45, 78, 125, 189, 267, 340],
+                        borderColor: '#00d2ff',
+                        backgroundColor: 'rgba(0, 210, 255, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: 'Investment (Million KES)',
+                        data: [2.1, 4.5, 8.2, 15.6, 28.9, 45.3],
+                        borderColor: '#0084ff',
+                        backgroundColor: 'rgba(0, 132, 255, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#0084ff' }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#0084ff' }, grid: { color: 'rgba(0, 132, 255, 0.1)' } },
+                        y: { ticks: { color: '#0084ff' }, grid: { color: 'rgba(0, 132, 255, 0.1)' } }
+                    }
+                }
+            });
+        }
+
+        function createSkillsRadarChart() {
+            const ctx = document.getElementById('skillsRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['JavaScript', 'Python', 'React', 'Node.js', 'Data Science', 'AI/ML', 'Mobile Dev', 'Cloud'],
+                    datasets: [{
+                        label: 'Skill Level',
+                        data: [95, 90, 92, 88, 85, 80, 75, 70],
+                        borderColor: '#00d2ff',
+                        backgroundColor: 'rgba(0, 210, 255, 0.2)',
+                        pointBackgroundColor: '#00d2ff',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#00d2ff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#0084ff' }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 132, 255, 0.2)' },
+                            grid: { color: 'rgba(0, 132, 255, 0.2)' },
+                            pointLabels: { color: '#0084ff' },
+                            ticks: { color: '#0084ff', backdropColor: 'transparent' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createCountyDevelopmentChart() {
+            const ctx = document.getElementById('countyDevelopmentChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Nairobi', 'Mombasa', 'Kisumu', 'Nakuru', 'Eldoret', 'Thika', 'Machakos', 'Meru'],
+                    datasets: [{
+                        label: 'Digital Infrastructure Score',
+                        data: [95, 78, 65, 72, 68, 70, 55, 60],
+                        backgroundColor: [
+                            'rgba(0, 210, 255, 0.8)',
+                            'rgba(0, 132, 255, 0.8)',
+                            'rgba(0, 210, 255, 0.6)',
+                            'rgba(0, 132, 255, 0.6)',
+                            'rgba(0, 210, 255, 0.7)',
+                            'rgba(0, 132, 255, 0.7)',
+                            'rgba(0, 210, 255, 0.5)',
+                            'rgba(0, 132, 255, 0.5)'
+                        ],
+                        borderColor: '#00d2ff',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#0084ff' }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#0084ff' }, grid: { color: 'rgba(0, 132, 255, 0.1)' } },
+                        y: { ticks: { color: '#0084ff' }, grid: { color: 'rgba(0, 132, 255, 0.1)' } }
+                    }
+                }
+            });
+        }
+
+        function createProjectTimelineChart() {
+            const ctx = document.getElementById('projectTimelineChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Projects Completed',
+                        data: [12, 15, 18, 22, 16, 20, 25, 28, 24, 30, 27, 32],
+                        borderColor: '#00d2ff',
+                        backgroundColor: 'rgba(0, 210, 255, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#0084ff' }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#0084ff' }, grid: { color: 'rgba(0, 132, 255, 0.1)' } },
+                        y: { ticks: { color: '#0084ff' }, grid: { color: 'rgba(0, 132, 255, 0.1)' } }
+                    }
+                }
+            });
+        }
+
+        function createMobileMoneyChart() {
+            const ctx = document.getElementById('mobileMoneyChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['M-Pesa', 'Airtel Money', 'T-Kash', 'Equitel', 'Others'],
+                    datasets: [{
+                        data: [65, 18, 8, 6, 3],
+                        backgroundColor: [
+                            '#00d2ff',
+                            '#0084ff',
+                            '#00a2ff',
+                            'rgba(0, 210, 255, 0.7)',
+                            'rgba(0, 132, 255, 0.5)'
+                        ],
+                        borderColor: '#001428',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#0084ff', padding: 20 }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createCodingHeatmap() {
+            const heatmapContainer = document.getElementById('codingHeatmap');
+            const days = 365;
+            
+            for (let i = 0; i < days; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'heatmap-cell';
+                
+                const activity = Math.floor(Math.random() * 5);
+                const intensity = activity / 4;
+                
+                const red = Math.floor(0 + (132 * intensity));
+                const green = Math.floor(20 + (210 * intensity));
+                const blue = Math.floor(40 + (215 * intensity));
+                const alpha = 0.3 + (0.7 * intensity);
+                
+                cell.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+                
+                cell.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.3)';
+                    this.style.boxShadow = '0 0 8px rgba(0, 210, 255, 0.8)';
+                });
+                
+                cell.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+                
+                heatmapContainer.appendChild(cell);
+            }
+        }
+
+        function createKenyaCountiesMap() {
+            const mapContainer = document.getElementById('kenyaCountiesMap');
+            
+            const counties = [
+                { name: 'Nairobi', score: 95 },
+                { name: 'Mombasa', score: 78 },
+                { name: 'Kisumu', score: 65 },
+                { name: 'Nakuru', score: 72 },
+                { name: 'Eldoret', score: 68 },
+                { name: 'Thika', score: 70 },
+                { name: 'Machakos', score: 55 },
+                { name: 'Meru', score: 60 },
+                { name: 'Nyeri', score: 62 },
+                { name: 'Kakamega', score: 58 },
+                { name: 'Kitale', score: 52 },
+                { name: 'Garissa', score: 45 },
+                { name: 'Malindi', score: 48 },
+                { name: 'Kericho', score: 54 }
+            ];
+            
+            counties.forEach(county => {
+                const bar = document.createElement('div');
+                bar.className = 'county-bar';
+                bar.style.width = `${county.score}%`;
+                
+                const label = document.createElement('div');
+                label.className = 'county-label';
+                label.textContent = county.name;
+                
+                const value = document.createElement('div');
+                value.className = 'county-value';
+                value.textContent = `${county.score}%`;
+                
+                bar.appendChild(label);
+                bar.appendChild(value);
+                
+                bar.addEventListener('click', function() {
+                    // Create a simple alert with county info
+                    const info = `${county.name} County\nDigital Transformation Index: ${county.score}%\n\nKey Metrics:\n• Internet Penetration: ${county.score - 10}%\n• Mobile Money Usage: ${county.score - 5}%\n• Tech Startups: ${Math.floor(county.score / 10)}\n• Digital Skills: ${county.score - 15}%`;
+                    alert(info);
+                });
+                
+                mapContainer.appendChild(bar);
+            });
+        }
+
+        // Initialize all components
+        document.addEventListener('DOMContentLoaded', function() {
+            initNavigation();
+            initParticles();
+            
+            // Initialize all charts
+            setTimeout(() => {
+                createTechEcosystemChart();
+                createSkillsRadarChart();
+                createCountyDevelopmentChart();
+                createProjectTimelineChart();
+                createMobileMoneyChart();
+                createCodingHeatmap();
+                createKenyaCountiesMap();
+            }, 100);
+            
+            // Animate stat numbers
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const text = stat.textContent;
+                const hasPercent = text.includes('%');
+                const hasPlus = text.includes('+');
+                const finalValue = parseInt(text);
+                let currentValue = 0;
+                const increment = finalValue / 30;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        stat.textContent = finalValue + (hasPercent ? '%' : hasPlus ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(currentValue) + (hasPercent ? '%' : hasPlus ? '+' : '');
+                    }
+                }, 50);
+            });
+            
+            // Add some interactive effects
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const label = this.querySelector('.stat-label').textContent;
+                    const number = this.querySelector('.stat-number').textContent;
+                    
+                    let message = '';
+                    switch(label) {
+                        case 'Years Coding':
+                            message = `I've been passionate about coding since 2019, continuously learning and growing in the tech industry.`;
+                            break;
+                        case 'Projects':
+                            message = `Over ${number} projects completed across web development, mobile apps, data analysis, and AI/ML implementations.`;
+                            break;
+                        case 'Clients':
+                            message = `Proud to have served ${number} clients ranging from small businesses to large enterprises across Kenya and beyond.`;
+                            break;
+                        case 'Satisfaction':
+                            message = `Maintaining a ${number} client satisfaction rate through quality delivery and excellent communication.`;
+                            break;
+                    }
+                    
+                    alert(message);
+                });
+            });
+            
+            // Add typing effect to header
+            const headerTitle = document.querySelector('.header-left h1');
+            if (headerTitle) {
+                const text = headerTitle.textContent;
+                headerTitle.textContent = '';
+                
+                let charIndex = 0;
+                const typing = setInterval(() => {
+                    if (charIndex < text.length) {
+                        headerTitle.textContent += text.charAt(charIndex);
+                        charIndex++;
+                    } else {
+                        clearInterval(typing);
+                    }
+                }, 100);
+            }
+            
+            // Add some dynamic glow effects
+            setInterval(() => {
+                const glowElements = document.querySelectorAll('.kenyan-flag, .light-trail');
+                glowElements.forEach(element => {
+                    element.style.filter = 'brightness(1.3) saturate(1.2)';
+                    setTimeout(() => {
+                        element.style.filter = '';
+                    }, 500);
+                });
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
