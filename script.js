@@ -463,7 +463,7 @@ complete expertise of the sport's behavior, fairness, and underlying probabilist
 		
 		
             'art-cites': {
-                title: 'ART CITES',
+                title: 'AUTOMATION',
                 html: `
 <div class="category-content">
     <div class="item">
@@ -489,7 +489,7 @@ complete expertise of the sport's behavior, fairness, and underlying probabilist
 
 // Update the articles section
 'articles': {
-    title: 'ARTICLES WRITTEN',
+    title: 'ARTICLES',
     html: `
         <div class="category-content">
             <div class="item">
@@ -533,7 +533,7 @@ natural disasters like sites of earthquakes or volcanic eruptions</p>
     `
 },
 'projects': {
-    title: 'WEBSITE SAMPLES',
+    title: 'WEBSITE',
     html: `
         <div class="category-content">
             <div class="item">
