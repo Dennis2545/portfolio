@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="contact-form">
                 <div class="contact-info">
                     <h3>Dennis Maran</h3>
-                    <p>Phone: 0702290320</p>
+                    <p>Phone: +254702290320</p>
                     <p>Email: dennismarango2019@gmail.com</p>
                     <div class="social-links">
                         <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
@@ -560,7 +560,7 @@ likelihood of unique consequences.</p>
                                 <button class="action-btn" onclick="window.open('presentations/reph1.pdf', '_blank')">
                                     <i class="fas fa-file-powerpoint"></i> View Presentation 1
                                 </button>
-                                <button class="action-btn" onclick="window.open('presentations/repha.pdf', '_blank')" style="margin-left: 10px;">
+                                <button class="action-btn" onclick="window.open('presentations/reph2.pdf', '_blank')" style="margin-left: 10px;">
                                     <i class="fas fa-file-powerpoint"></i> View Presentation 2
                                 </button>
                                 <button class="action-btn" onclick="window.open('presentations/reph3.pptx', '_blank')" style="margin-left: 10px;">
@@ -584,7 +584,7 @@ likelihood of unique consequences.</p>
                         <div class="item">
                             <h3>CRM Hospital Management System - Part 2</h3>
                             <p>Advanced features and implementation strategies for hospital CRM systems including patient data management and workflow optimization.</p>
-                            <button class="action-btn" onclick="window.open('presentations/reph4.pptx', '_blank')">
+                            <button class="action-btn" onclick="window.open('presentations/reph1.pdf', '_blank')">
                                 <i class="fas fa-file-powerpoint"></i> Open Presentation
                             </button>
                         </div>
@@ -857,5 +857,6 @@ likelihood of unique consequences.</p>
         modal.style.display = 'block';
     }
 });
+
 
 
