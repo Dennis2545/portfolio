@@ -352,7 +352,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </div>
 
-
 <div class="category-content">
     <div class="item">
         <h3>Arduino + Raspberry Pi Robot Car</h3>
@@ -391,77 +390,51 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `
             },
-	// Update the research section
-'research': {
-    title: 'RESEARCH',
-    html: `
-        <div class="category-content">
-            <div class="item">
-                <h3>Heart Attack analysis</h3>
-                <p>Developing predictive models that can quantify the 
+            'research': {
+                title: 'RESEARCH',
+                html: `
+                    <div class="category-content">
+                        <div class="item">
+                            <h3>Heart Attack analysis</h3>
+                            <p>Developing predictive models that can quantify the 
 likelihood of heart attacks is an important step towards lowering this burden, which could have 
 far-reaching consequences across society.</p>
-                <a href="research/Heart attacks Analysis.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-            <div class="item">
-                <h3>Layout Planning Models</h3>
-                <p> Essential tools in operations management and industrial engineering 
+                            <a href="research/Heart attacks Analysis.pdf" class="pdf-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> View PDF
+                            </a>
+                        </div>
+                        <div class="item">
+                            <h3>Layout Planning Models</h3>
+                            <p> Essential tools in operations management and industrial engineering 
 that help optimize the arrangement of facilities, equipment, and workspaces within a manufacturing or 
 service environment. </p>
-                <a href="research/Layout Planning Models.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-            <div class="item">
-                <h3>Risk management practices in Malaysian construction</h3>
-                <p>This study investigates risk management practices in Malaysian construction projects, focusing on 
+                            <a href="research/Layout Planning Models.pdf" class="pdf-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> View PDF
+                            </a>
+                        </div>
+                        <div class="item">
+                            <h3>Risk management practices in Malaysian construction</h3>
+                            <p>This study investigates risk management practices in Malaysian construction projects, focusing on 
 their influence on project success. The construction industry in Malaysia faces complex 
 challenges, including resource constraints, regulatory compliance, and external uncertainties, 
-making effective risk management essential. Through a mixed-method approach combining 
-quantitative data from surveys and qualitative insights from interviews with industry professionals, 
-this research identifies critical factors that impact risk mitigation and project outcomes. Key 
-findings reveal that proactive risk identification, comprehensive planning, and stakeholder 
-involvement are vital in minimizing delays, cost overruns, and quality issues. Organizational 
-culture, the level of expertise in risk management, and the integration of technology further 
-influence the effectiveness of these practices. The study highlights significant gaps, including 
-inconsistent risk assessment frameworks and inadequate communication among stakeholders, 
-which hinder optimal project execution. Practical recommendations include adopting standardized 
-risk management protocols, enhancing training programs, and leveraging digital tools such as 
-Building Information Modeling (BIM) for real-time risk monitoring. The findings contribute to 
-the theoretical understanding of risk management in construction and provide actionable insights 
-for practitioners, policymakers, and academics. Future research should explore the long-term 
-impacts of emerging technologies and evolving industry regulations on risk management practices. 
-This study underscores the importance of robust risk management strategies as a cornerstone for 
-achieving sustainable success in Malaysian construction projects</p>
-                <a href="research/analysis_!.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-      
-
-            <div class="item">
-                <h3>Card draw mechanics in Absolute Zenless zero zone</h3>
-                <p> The number one goal of this study looks at is to research and examine the chances 
+making effective risk management essential.</p>
+                            <a href="research/analysis_!.pdf" class="pdf-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> View PDF
+                            </a>
+                        </div>
+                        <div class="item">
+                            <h3>Card draw mechanics in Absolute Zenless zero zone</h3>
+                            <p> The number one goal of this study looks at is to research and examine the chances 
 related to the card draw mechanics in Absolute Zenless zero zone, this will be accomplished 
 by means of the use of mathematical tools, such as binomial distribution, to version the 
-likelihood of unique consequences, and chi-sqaure assessments to assess how determined 
-consequences align with predicted chances. moreover, recurrence formulas will describe the 
-possible consequences over repeated trials. collectively, these analyses will provide a 
-complete expertise of the sport's behavior, fairness, and underlying probabilistic structure. </p>
-                <a href="research/analysis_2.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-			 </div>
-		
-    `
-},
-
-		
-		
-		
+likelihood of unique consequences.</p>
+                            <a href="research/analysis_2.pdf" class="pdf-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> View PDF
+                            </a>
+                        </div>
+                    </div>
+                `
+            },
             'art-cites': {
                 title: 'AUTOMATION',
                 html: `
@@ -486,90 +459,84 @@ complete expertise of the sport's behavior, fairness, and underlying probabilist
     </div>
                 `
             },
-
-// Update the articles section
-'articles': {
-    title: 'ARTICLES',
-    html: `
-        <div class="category-content">
-            <div class="item">
-                <h3>Earth‘s history</h3>
-                <p>The planet Earth has a more than 4.6 billion year history, over the course of which it has undergone substantial changes in the conditions it offers life. All living organisms have had to
-adapt to these changes; those that were unable died out. However the survivors have also contributed to the creation and alteration of these life conditions. This process of mutual
-influence between different elements of the environment is called coevolution, and it has contributed considerably to changing our planet.</p>
-                <div class="publication">Published in Lifeliqe's lesson plan!</div>
-                <a href="articles/presentation2.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-            <div class="item">
-                <h3>Using Learning Analytics to Explore Responses from
-Student Conversations with Chatbot</h3>
-                <p>The planet Earth has a more than 4.6 billion year history, over the course of which it has undergone substantial changes in the conditions it offers life. All living organisms have had to
-adapt to these changes; those that were unable died out. However the survivors have also contributed to the creation and alteration of these life conditions. This process of mutual
-influence between different elements of the environment is called coevolution, and it has contributed considerably to changing our planet.</p>
-                <div class="publication">Published in Lifeliqe's lesson plan!</div>
-                <a href="articles/chatbot_analysis.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-            <div class="item">
-                <h3>Tourism industry plays a vital role in the country's economy . It is important to
-have a lot of tourist attractions like beautiful beaches , mountains or some
-historical buildings. These are primary tourism resources . It is also important to
-develop communication networks , accommodation , gastronomy and
-secondary tourism resources. Based on this, some particular types of tourism
-start to develop . One example of tourism is Dark tourism. Dark tourism refers
-to a type of tourism that involves visiting places that are associated with
-death, tragedy, or suffering. These places could be sites of historical
-events such as war zones, prisons, concentration camps, or places of
-natural disasters like sites of earthquakes or volcanic eruptions</p>
-                <div class="publication">Published in Lifeliqe's lesson plan!</div>
-                <a href="articles/industry_analysis.pdf" class="pdf-link" target="_blank">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-        </div>
-    `
-},
-'projects': {
-    title: 'WEBSITE',
-    html: `
-        <div class="category-content">
-            <div class="item">
-                <h3>Familiar Technology</h3>
-             
-                <div class="tech-stack">React · Node.js · MongoDB · Django. PHP. Wordpress</div>
-            </div>
-            
-            <p style="margin: 25px 0 15px; text-align: center; color: #8892b0;">
-                Explore my complete web development journey including projects built from scratch, debugging work, and early experiments.
-            </p>
-            
-            <div style="text-align: center;">
-                <a href="../portfolio/website_samples/website_samples.html" 
-                   style="display: inline-block; 
-                          padding: 12px 30px; 
-                          background: linear-gradient(135deg, #0066ff, #00d2ff); 
-                          color: white; 
-                          border-radius: 8px; 
-                          text-decoration: none; 
-                          font-weight: 600;
-                          transition: all 0.3s ease;
-                          box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);">
-                    View Website Samples
-                </a>
-            </div>
-        </div>
-    `
-},
+            'articles': {
+                title: 'ARTICLES',
+                html: `
+                    <div class="category-content">
+                        <div class="item">
+                            <h3>Earth's history</h3>
+                            <p>The planet Earth has a more than 4.6 billion year history, over the course of which it has undergone substantial changes in the conditions it offers life.</p>
+                            <div class="publication">Published in Lifeliqe's lesson plan!</div>
+                            <a href="articles/presentation2.pdf" class="pdf-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> View PDF
+                            </a>
+                        </div>
+                        <div class="item">
+                            <h3>Using Learning Analytics to Explore Responses from Student Conversations with Chatbot</h3>
+                            <p>Research exploring how learning analytics can be used to analyze student interactions with educational chatbots.</p>
+                            <div class="publication">Published in Lifeliqe's lesson plan!</div>
+                            <a href="articles/chatbot_analysis.pdf" class="pdf-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> View PDF
+                            </a>
+                        </div>
+                        <div class="item">
+                            <h3>Dark Tourism Industry Analysis</h3>
+                            <p>Essential analysis of tourism industry focusing on dark tourism - visiting places associated with death, tragedy, or suffering including historical sites and disaster locations.</p>
+                            <div class="publication">Published in Lifeliqe's lesson plan!</div>
+                            <a href="articles/industry_analysis.pdf" class="pdf-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> View PDF
+                            </a>
+                        </div>
+                    </div>
+                `
+            },
+            'projects': {
+                title: 'WEBSITE',
+                html: `
+                    <div class="category-content">
+                        <div class="item">
+                            <h3>Familiar Technology</h3>
+                            <div class="tech-stack">React · Node.js · MongoDB · Django · PHP · WordPress</div>
+                        </div>
+                        
+                        <p style="margin: 25px 0 15px; text-align: center; color: #8892b0;">
+                            Explore my complete web development journey including projects built from scratch, debugging work, and early experiments.
+                        </p>
+                        
+                        <div style="text-align: center;">
+                            <a href="../portfolio/website_samples/website_samples.html" 
+                               style="display: inline-block; 
+                                      padding: 12px 30px; 
+                                      background: linear-gradient(135deg, #0066ff, #00d2ff); 
+                                      color: white; 
+                                      border-radius: 8px; 
+                                      text-decoration: none; 
+                                      font-weight: 600;
+                                      transition: all 0.3s ease;
+                                      box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);">
+                                View Website Samples
+                            </a>
+                        </div>
+                    </div>
+                `
+            },
             'data': {
                 title: 'DATA COLLECTED',
                 html: `
                     <div class="category-content">
                         <div class="item">
+                            <h3>Sample Dataset</h3>
+                            <p>Comprehensive dataset example showcasing data collection and analysis capabilities.</p>
+                            <button class="action-btn" onclick="window.open('data/sample.xlsx', '_blank')">
+                                <i class="fas fa-file-excel"></i> Open Excel File
+                            </button>
+                            <button class="action-btn" onclick="window.open('data/sample.csv', '_blank')" style="margin-left: 10px;">
+                                <i class="fas fa-file-csv"></i> Open CSV File
+                            </button>
+                        </div>
+                        <div class="item">
                             <h3>User Interaction Patterns</h3>
-                            <p>Comprehensive dataset of how users interact with various digital interfaces and applications.</p>
+                            <p>Dataset of how users interact with various digital interfaces and applications.</p>
                         </div>
                         <div class="item">
                             <h3>Environmental Monitoring</h3>
@@ -586,6 +553,21 @@ natural disasters like sites of earthquakes or volcanic eruptions</p>
                 title: 'VISUALIZATION',
                 html: `
                     <div class="category-content">
+                        <div class="item">
+                            <h3>CRM Hospital Management Presentations</h3>
+                            <p>Interactive presentations showcasing hospital management systems and CRM implementations.</p>
+                            <div class="presentation-links">
+                                <button class="action-btn" onclick="window.open('presentations/reph1.pptx', '_blank')">
+                                    <i class="fas fa-file-powerpoint"></i> View Presentation 1
+                                </button>
+                                <button class="action-btn" onclick="window.open('presentations/reph2.pptx', '_blank')" style="margin-left: 10px;">
+                                    <i class="fas fa-file-powerpoint"></i> View Presentation 2
+                                </button>
+                                <button class="action-btn" onclick="window.open('presentations/reph3.pptx', '_blank')" style="margin-left: 10px;">
+                                    <i class="fas fa-file-powerpoint"></i> View Presentation 3
+                                </button>
+                            </div>
+                        </div>
                         <div class="item">
                             <h3>Global Data Trends</h3>
                             <p>Interactive visualizations representing worldwide patterns and correlations in various datasets.</p>
@@ -606,16 +588,25 @@ natural disasters like sites of earthquakes or volcanic eruptions</p>
                 html: `
                     <div class="category-content">
                         <div class="item">
-                            <h3>Future Technology Trends</h3>
-                            <p>A visually striking presentation exploring emerging technologies and their potential impact.</p>
+                            <h3>CRM Hospital Management System - Part 1</h3>
+                            <p>Comprehensive presentation on customer relationship management systems specifically designed for healthcare environments.</p>
+                            <button class="action-btn" onclick="window.open('presentations/reph1.pptx', '_blank')">
+                                <i class="fas fa-file-powerpoint"></i> Open Presentation
+                            </button>
                         </div>
                         <div class="item">
-                            <h3>AI Ethics and Implementation</h3>
-                            <p>A comprehensive overview of ethical considerations and practical applications of AI systems.</p>
+                            <h3>CRM Hospital Management System - Part 2</h3>
+                            <p>Advanced features and implementation strategies for hospital CRM systems including patient data management and workflow optimization.</p>
+                            <button class="action-btn" onclick="window.open('presentations/reph2.pptx', '_blank')">
+                                <i class="fas fa-file-powerpoint"></i> Open Presentation
+                            </button>
                         </div>
                         <div class="item">
-                            <h3>Data Visualization Strategies</h3>
-                            <p>Educational presentation on effective techniques for representing complex data visually.</p>
+                            <h3>CRM Hospital Management System - Part 3</h3>
+                            <p>Integration protocols and best practices for deploying CRM solutions in healthcare settings with focus on data security and compliance.</p>
+                            <button class="action-btn" onclick="window.open('presentations/reph3.pptx', '_blank')">
+                                <i class="fas fa-file-powerpoint"></i> Open Presentation
+                            </button>
                         </div>
                     </div>
                 `
@@ -625,9 +616,20 @@ natural disasters like sites of earthquakes or volcanic eruptions</p>
                 html: `
                     <div class="category-content">
                         <div class="item">
-                            <h3>Predictive Analysis System</h3>
-                            <p>An advanced machine learning model that forecasts trends and outcomes based on historical data.</p>
-                            <div class="tech-stack">Python · TensorFlow · Scikit-learn · PyTorch</div>
+                            <h3>Heartbeat Prediction Model</h3>
+                            <p>Advanced machine learning model for predicting heart conditions using cardiovascular data analysis and pattern recognition.</p>
+                            <div class="tech-stack">Python · TensorFlow · Scikit-learn · Pandas · NumPy</div>
+                            <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/18F_6ORXSZTYIGy7a1htbTUOvGkcyKbnX?usp=sharing', '_blank')">
+                                <i class="fab fa-google"></i> Open in Google Colab
+                            </button>
+                        </div>
+                        <div class="item">
+                            <h3>Cardiac Risk Assessment System</h3>
+                            <p>Comprehensive ML system for analyzing cardiovascular health patterns and predicting potential cardiac events.</p>
+                            <div class="tech-stack">Python · TensorFlow · Keras · Medical Data Analysis</div>
+                            <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/18F_6ORXSZTYIGy7a1htbTUOvGkcyKbnX?usp=sharing', '_blank')">
+                                <i class="fab fa-google"></i> Open in Google Colab
+                            </button>
                         </div>
                         <div class="item">
                             <h3>Natural Language Processing Tool</h3>
@@ -685,118 +687,165 @@ natural disasters like sites of earthquakes or volcanic eruptions</p>
                 html: `
                     <div class="category-content">
                         <div class="item">
+                            <h3>Interactive Game Collection</h3>
+                            <p>Explore a collection of interactive games including educational puzzles, strategy games, and entertainment applications.</p>
+                            <button class="action-btn" onclick="window.open('games/games.html', '_blank')">
+                                <i class="fas fa-gamepad"></i> Play Games
+                            </button>
+                        </div>
+                        <div class="item">
                             <h3>Neural Network Playground</h3>
                             <p>An educational game that teaches principles of machine learning through interactive challenges.</p>
                             <div class="tech-stack">Unity · C# · TensorFlow.js</div>
+                            <button class="action-btn" onclick="window.open('games/games.html', '_blank')">
+                                <i class="fas fa-brain"></i> Launch Game
+                            </button>
                         </div>
                         <div class="item">
                             <h3>Data Defender</h3>
                             <p>A strategy game where players must protect digital assets from various security threats.</p>
                             <div class="tech-stack">Godot · GDScript · WebGL</div>
+                            <button class="action-btn" onclick="window.open('games/games.html', '_blank')">
+                                <i class="fas fa-shield-alt"></i> Play Now
+                            </button>
                         </div>
                         <div class="item">
                             <h3>Algorithm Adventure</h3>
                             <p>A puzzle game that introduces computational thinking and algorithm design concepts.</p>
                             <div class="tech-stack">JavaScript · Three.js · React</div>
+                            <button class="action-btn" onclick="window.open('games/games.html', '_blank')">
+                                <i class="fas fa-puzzle-piece"></i> Start Adventure
+                            </button>
                         </div>
                     </div>
                 `
             }
         };
         
-     // Add some styling for the modal content
-const style = document.createElement('style');
-style.textContent = `
-    .category-content {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .item {
-        background: rgba(0, 20, 40, 0.5);
-        border: 1px solid var(--glass-border);
-        border-radius: 10px;
-        padding: 20px;
-        transition: all 0.3s ease;
-    }
-    
-    .item:hover {
-        box-shadow: 0 0 15px rgba(0, 132, 255, 0.3);
-        transform: translateY(-2px);
-    }
-    
-    .item h3 {
-        color: var(--glow-blue);
-        margin-bottom: 10px;
-        font-weight: 500;
-    }
-    
-    .item p {
-        margin-bottom: 10px;
-        line-height: 1.5;
-        color: rgba(255, 255, 255, 0.8);
-    }
-    
-    .tech-stack, .publication {
-        font-size: 0.9rem;
-        color: var(--accent-blue);
-        margin-top: 10px;
-        font-style: italic;
-    }
-    
-    .action-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, var(--accent-blue), var(--glow-blue));
-        color: white;
-        padding: 10px 20px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-size: 0.9rem;
-        margin-top: 15px;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 132, 255, 0.25);
-        font-family: 'Orbitron', sans-serif;
-        letter-spacing: 0.5px;
-        font-style: normal;
-    }
-    
-    .action-btn i {
-        margin-right: 8px;
-        font-size: 0.9em;
-    }
-    
-    .action-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 210, 255, 0.4);
-        background: linear-gradient(135deg, var(--light-blue), var(--glow-blue));
-    }
-    
-    .action-btn:active {
-        transform: translateY(0);
-    }
-    
-    /* Tech stack specific styling */
-    .tech-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin: 15px 0;
-    }
-    
-    .tech-stack span {
-        background: rgba(0, 132, 255, 0.15);
-        padding: 4px 10px;
-        border-radius: 12px;
-        border: 1px solid rgba(0, 132, 255, 0.3);
-        font-style: normal;
-        font-size: 0.8rem;
-    }
-`;
+        // Add some styling for the modal content
+        const style = document.createElement('style');
+        style.textContent = `
+            .category-content {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .item {
+                background: rgba(0, 20, 40, 0.5);
+                border: 1px solid var(--glass-border);
+                border-radius: 10px;
+                padding: 20px;
+                transition: all 0.3s ease;
+            }
+            
+            .item:hover {
+                box-shadow: 0 0 15px rgba(0, 132, 255, 0.3);
+                transform: translateY(-2px);
+            }
+            
+            .item h3 {
+                color: var(--glow-blue);
+                margin-bottom: 10px;
+                font-weight: 500;
+            }
+            
+            .item p {
+                margin-bottom: 10px;
+                line-height: 1.5;
+                color: rgba(255, 255, 255, 0.8);
+            }
+            
+            .tech-stack, .publication {
+                font-size: 0.9rem;
+                color: var(--accent-blue);
+                margin-top: 10px;
+                font-style: italic;
+            }
+            
+            .action-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, var(--accent-blue), var(--glow-blue));
+                color: white;
+                padding: 10px 20px;
+                border-radius: 6px;
+                text-decoration: none;
+                font-size: 0.9rem;
+                margin-top: 15px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 132, 255, 0.25);
+                font-family: 'Orbitron', sans-serif;
+                letter-spacing: 0.5px;
+                font-style: normal;
+            }
+            
+            .action-btn i {
+                margin-right: 8px;
+                font-size: 0.9em;
+            }
+            
+            .action-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(0, 210, 255, 0.4);
+                background: linear-gradient(135deg, var(--light-blue), var(--glow-blue));
+            }
+            
+            .action-btn:active {
+                transform: translateY(0);
+            }
+            
+            .pdf-link {
+                display: inline-flex;
+                align-items: center;
+                color: var(--accent-blue);
+                text-decoration: none;
+                margin-top: 10px;
+                padding: 8px 16px;
+                border: 1px solid var(--accent-blue);
+                border-radius: 6px;
+                transition: all 0.3s ease;
+                font-size: 0.9rem;
+            }
+            
+            .pdf-link:hover {
+                background: rgba(0, 132, 255, 0.1);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 132, 255, 0.2);
+            }
+            
+            .pdf-link i {
+                margin-right: 8px;
+                color: #ff6b6b;
+            }
+            
+            .presentation-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 15px;
+            }
+            
+            /* Tech stack specific styling */
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin: 15px 0;
+            }
+            
+            .tech-stack span {
+                background: rgba(0, 132, 255, 0.15);
+                padding: 4px 10px;
+                border-radius: 12px;
+                border: 1px solid rgba(0, 132, 255, 0.3);
+                font-style: normal;
+                font-size: 0.8rem;
+            }
+        `;
         
         document.head.appendChild(style);
         
@@ -804,5 +853,31 @@ style.textContent = `
             title: 'Content Coming Soon',
             html: '<p>Detailed information for this section is currently being developed.</p>'
         };
+    }
+    
+    // Free services modal
+    function showFreeServicesModal() {
+        modalTitle.textContent = "Free Services Available";
+        modalContent.innerHTML = `
+            <div class="category-content">
+                <div class="item">
+                    <h3>Website Development Consultation</h3>
+                    <p>Get expert advice on your web development projects, including architecture planning and technology recommendations.</p>
+                </div>
+                <div class="item">
+                    <h3>Code Review & Optimization</h3>
+                    <p>Professional code review services to improve performance, security, and maintainability of your projects.</p>
+                </div>
+                <div class="item">
+                    <h3>Technical Documentation</h3>
+                    <p>Create comprehensive documentation for your software projects, APIs, and technical specifications.</p>
+                </div>
+                <div class="item">
+                    <h3>Educational Resources</h3>
+                    <p>Access to learning materials, tutorials, and guidance for programming and technology topics.</p>
+                </div>
+            </div>
+        `;
+        modal.style.display = 'block';
     }
 });
