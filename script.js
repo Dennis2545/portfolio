@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="contact-info">
                     <h3>Dennis Maran</h3>
                     <p>Phone: 0702290320</p>
-                    <p>Email: marantech002@gmail.com</p>
+                    <p>Email: dennismarango2019@gmail.com</p>
                     <div class="social-links">
                         <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
@@ -881,3 +881,4 @@ likelihood of unique consequences.</p>
         modal.style.display = 'block';
     }
 });
+
