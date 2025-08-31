@@ -555,12 +555,12 @@ likelihood of unique consequences.</p>
                     <div class="category-content">
                         <div class="item">
                             <h3>CRM Hospital Management Presentations</h3>
-                            <p>Interactive presentations showcasing hospital management systems and CRM implementations.</p>
+                            <p>Interactive presentations showcasing hospital management systems, arlington intake presentations and CRM implementations.</p>
                             <div class="presentation-links">
-                                <button class="action-btn" onclick="window.open('presentations/reph1.pptx', '_blank')">
+                                <button class="action-btn" onclick="window.open('presentations/reph1.pdf', '_blank')">
                                     <i class="fas fa-file-powerpoint"></i> View Presentation 1
                                 </button>
-                                <button class="action-btn" onclick="window.open('presentations/reph2.pptx', '_blank')" style="margin-left: 10px;">
+                                <button class="action-btn" onclick="window.open('presentations/repha.pdf', '_blank')" style="margin-left: 10px;">
                                     <i class="fas fa-file-powerpoint"></i> View Presentation 2
                                 </button>
                                 <button class="action-btn" onclick="window.open('presentations/reph3.pptx', '_blank')" style="margin-left: 10px;">
@@ -568,19 +568,6 @@ likelihood of unique consequences.</p>
                                 </button>
                             </div>
                         </div>
-                        <div class="item">
-                            <h3>Global Data Trends</h3>
-                            <p>Interactive visualizations representing worldwide patterns and correlations in various datasets.</p>
-                        </div>
-                        <div class="item">
-                            <h3>Network Analysis Tools</h3>
-                            <p>Visual representations of complex networks and connection patterns between data points.</p>
-                        </div>
-                        <div class="item">
-                            <h3>Temporal Data Exploration</h3>
-                            <p>Dynamic visualizations showing how data evolves and changes over different time scales.</p>
-                        </div>
-                    </div>
                 `
             },
             'powerpoint': {
@@ -588,16 +575,16 @@ likelihood of unique consequences.</p>
                 html: `
                     <div class="category-content">
                         <div class="item">
-                            <h3>CRM Hospital Management System - Part 1</h3>
-                            <p>Comprehensive presentation on customer relationship management systems specifically designed for healthcare environments.</p>
-                            <button class="action-btn" onclick="window.open('presentations/reph1.pptx', '_blank')">
+                            <h3>Arlington college overview</h3>
+                            <p>Comprehensive presentation on arlington college specifically designed for healthcare student environments.</p>
+                            <button class="action-btn" onclick="window.open('presentations/reph1.pdf', '_blank')">
                                 <i class="fas fa-file-powerpoint"></i> Open Presentation
                             </button>
                         </div>
                         <div class="item">
                             <h3>CRM Hospital Management System - Part 2</h3>
                             <p>Advanced features and implementation strategies for hospital CRM systems including patient data management and workflow optimization.</p>
-                            <button class="action-btn" onclick="window.open('presentations/reph2.pptx', '_blank')">
+                            <button class="action-btn" onclick="window.open('presentations/reph4.pptx', '_blank')">
                                 <i class="fas fa-file-powerpoint"></i> Open Presentation
                             </button>
                         </div>
@@ -631,17 +618,6 @@ likelihood of unique consequences.</p>
                                 <i class="fab fa-google"></i> Open in Google Colab
                             </button>
                         </div>
-                        <div class="item">
-                            <h3>Natural Language Processing Tool</h3>
-                            <p>A sophisticated system for analyzing and generating human language with nuanced understanding.</p>
-                            <div class="tech-stack">Python · BERT · GPT · spaCy</div>
-                        </div>
-                        <div class="item">
-                            <h3>Computer Vision Application</h3>
-                            <p>A machine learning system that can identify, classify, and track objects in images and video.</p>
-                            <div class="tech-stack">Python · OpenCV · TensorFlow · YOLO</div>
-                        </div>
-                    </div>
                 `
             },
             'reports': {
@@ -881,4 +857,5 @@ likelihood of unique consequences.</p>
         modal.style.display = 'block';
     }
 });
+
 
