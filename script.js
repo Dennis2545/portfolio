@@ -603,18 +603,16 @@ likelihood of unique consequences.</p>
                 html: `
                     <div class="category-content">
                         <div class="item">
-                            <h3>Heartbeat Prediction Model</h3>
-                            <p>Advanced machine learning model for predicting heart conditions using cardiovascular data analysis and pattern recognition.</p>
+                            <h3># Student Performance Analysi</h3>
+                            <p>This data approach student achievement in secondary education of two Portuguese schools. The data attributes include student grades, demographic, social and school related features and it was collected by using school reports and questionnaires. Two datasets are provided regarding the performance in two distinct subjects: Mathematics (mat) and Portuguese language (por).</p>
                             <div class="tech-stack">Python · TensorFlow · Scikit-learn · Pandas · NumPy</div>
-                            <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/18F_6ORXSZTYIGy7a1htbTUOvGkcyKbnX?usp=sharing', '_blank')">
+                            <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/1Hkiwjkb4IhoFFaAQ8I0RPx7RTtUCEpp7?usp=sharing', '_blank')">
                                 <i class="fab fa-google"></i> Open in Google Colab
                             </button>
                         </div>
-                        <div class="item">
-                            <h3>Cardiac Risk Assessment System</h3>
-                            <p>Comprehensive ML system for analyzing cardiovascular health patterns and predicting potential cardiac events.</p>
-                            <div class="tech-stack">Python · TensorFlow · Keras · Medical Data Analysis</div>
-                            <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/18F_6ORXSZTYIGy7a1htbTUOvGkcyKbnX?usp=sharing', '_blank')">
+                          <h3>Open Rocket Experiment</h3>
+                            <p>A rocket with swept, trapezoidal fins will achieve a higher altitude than an otherwise identical rocket with elliptical fins due to lower drag.</p>
+                       <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/13lgy9yLNK3K7lR9ra9S1nd2pO8aIAjjU?usp=sharing', '_blank')">
                                 <i class="fab fa-google"></i> Open in Google Colab
                             </button>
                         </div>
@@ -625,13 +623,17 @@ likelihood of unique consequences.</p>
                 html: `
                     <div class="category-content">
                         <div class="item">
-                            <h3>Annual Technology Impact Assessment</h3>
-                            <p>A comprehensive analysis of how emerging technologies are transforming various industries.</p>
+                            <h3>Open Rocket Experiment</h3>
+                            <p>A rocket with swept, trapezoidal fins will achieve a higher altitude than an otherwise identical rocket with elliptical fins due to lower drag.</p>
+                       <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/13lgy9yLNK3K7lR9ra9S1nd2pO8aIAjjU?usp=sharing', '_blank')">
+                                <i class="fab fa-google"></i> Open in Google Colab
+                            </button>
                         </div>
                         <div class="item">
                             <h3>User Experience Research Findings</h3>
                             <p>Detailed insights from user testing and interaction analysis across multiple platforms.</p>
-                        </div>
+                       
+                    </div>
                         <div class="item">
                             <h3>Market Analysis and Future Projections</h3>
                             <p>In-depth evaluation of current market conditions and forecasts for technological developments.</p>
@@ -857,6 +859,7 @@ likelihood of unique consequences.</p>
         modal.style.display = 'block';
     }
 });
+
 
 
 
