@@ -462,20 +462,21 @@ likelihood of unique consequences.</p>
             'articles': {
                 title: 'ARTICLES',
                 html: `
-                    <div class="category-content">
-                        <div class="item">
-                            <h3>Earth's history</h3>
-                            <p>The planet Earth has a more than 4.6 billion year history, over the course of which it has undergone substantial changes in the conditions it offers life.</p>
-                            <div class="publication">Published in Lifeliqe's lesson plan!</div>
-                            <a href="articles/presentation2.pdf" class="pdf-link" target="_blank">
-                                <i class="fas fa-file-pdf"></i> View PDF
-                            </a>
-                        </div>
+
                         <div class="item">
                             <h3>Using Learning Analytics to Explore Responses from Student Conversations with Chatbot</h3>
                             <p>Research exploring how learning analytics can be used to analyze student interactions with educational chatbots.</p>
                             <div class="publication">Published in Lifeliqe's lesson plan!</div>
                             <a href="articles/chatbot_analysis.pdf" class="pdf-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> View PDF
+                            </a>
+                        </div>
+                        <div class="category-content">
+                        <div class="item">
+                            <h3>Earth's history</h3>
+                            <p>The planet Earth has a more than 4.6 billion year history, over the course of which it has undergone substantial changes in the conditions it offers life.</p>
+                            <div class="publication">Published in Lifeliqe's lesson plan!</div>
+                            <a href="articles/presentation2.pdf" class="pdf-link" target="_blank">
                                 <i class="fas fa-file-pdf"></i> View PDF
                             </a>
                         </div>
@@ -860,6 +861,7 @@ likelihood of unique consequences.</p>
         modal.style.display = 'block';
     }
 });
+
 
 
 
