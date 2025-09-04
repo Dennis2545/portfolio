@@ -390,6 +390,60 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 `
             },
+
+                        'powerpoint': {
+                title: 'POWERPOINT',
+                html: `
+                    <div class="category-content">
+                        <div class="item">
+                            <h3>Arlington college overview</h3>
+                            <p>Comprehensive presentation on arlington college specifically designed for healthcare student environments.</p>
+                            <button class="action-btn" onclick="window.open('presentations/reph1.pdf', '_blank')">
+                                <i class="fas fa-file-powerpoint"></i> Open Presentation
+                            </button>
+                        </div>
+                        <div class="item">
+                            <h3>Facility Support Management Systems (FMS)</h3>
+                            <p>Facility Support Management Systems (FMS) are integrated software platforms that optimize the operations of physical facilities, managing assets, maintenance, space, energy usage, and other aspects.</p>
+                            <button class="action-btn" onclick="window.open('presentations/reph6.pptx', '_blank')">
+                                <i class="fas fa-file-powerpoint"></i> Open Presentation
+                            </button>
+                        </div>
+                        <div class="item">
+                            <h3>CRM Hospital Management System</h3>
+                            <p>Integration protocols and best practices for deploying CRM solutions in healthcare settings with focus on data security and compliance.</p>
+                            <button class="action-btn" onclick="window.open('presentations/reph3.pptx', '_blank')">
+                                <i class="fas fa-file-powerpoint"></i> Open Presentation
+                            </button>
+                        </div>
+                    </div>
+                `
+            },
+            'machine-learning': {
+                title: 'MACHINE LEARNING',
+                html: `
+                    <div class="category-content">
+                        <div class="item">
+                            <h3>Student Performance Analysis</h3>
+                            <p>This data approach student achievement in secondary education of two Portuguese schools. The data attributes include student grades, demographic, social and school related features and it was collected by using school reports and questionnaires. Two datasets are provided regarding the performance in two distinct subjects: Mathematics (mat) and Portuguese language (por).</p>
+                            <div class="tech-stack">Python · TensorFlow · Scikit-learn · Pandas · NumPy</div>
+                            <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/1Hkiwjkb4IhoFFaAQ8I0RPx7RTtUCEpp7?usp=sharing', '_blank')">
+                                <i class="fab fa-google"></i> Open in Google Colab
+                            </button>
+                        </div>
+                        <div class="item">
+                          <h3>Open Rocket Experiment</h3>
+                            <p>A rocket with swept, trapezoidal fins will achieve a higher altitude than an otherwise identical rocket with elliptical fins due to lower drag.</p>
+                       <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/13lgy9yLNK3K7lR9ra9S1nd2pO8aIAjjU?usp=sharing', '_blank')">
+                                <i class="fab fa-google"></i> Open in Google Colab
+                            </button>
+                        </div>
+                `
+            },
+
+            
+
+            
             'research': {
                 title: 'RESEARCH',
                 html: `
@@ -571,55 +625,7 @@ likelihood of unique consequences.</p>
                         </div>
                 `
             },
-            'powerpoint': {
-                title: 'POWERPOINT',
-                html: `
-                    <div class="category-content">
-                        <div class="item">
-                            <h3>Arlington college overview</h3>
-                            <p>Comprehensive presentation on arlington college specifically designed for healthcare student environments.</p>
-                            <button class="action-btn" onclick="window.open('presentations/reph1.pdf', '_blank')">
-                                <i class="fas fa-file-powerpoint"></i> Open Presentation
-                            </button>
-                        </div>
-                        <div class="item">
-                            <h3>Facility Support Management Systems (FMS)</h3>
-                            <p>Facility Support Management Systems (FMS) are integrated software platforms that optimize the operations of physical facilities, managing assets, maintenance, space, energy usage, and other aspects.</p>
-                            <button class="action-btn" onclick="window.open('presentations/reph6.pptx', '_blank')">
-                                <i class="fas fa-file-powerpoint"></i> Open Presentation
-                            </button>
-                        </div>
-                        <div class="item">
-                            <h3>CRM Hospital Management System</h3>
-                            <p>Integration protocols and best practices for deploying CRM solutions in healthcare settings with focus on data security and compliance.</p>
-                            <button class="action-btn" onclick="window.open('presentations/reph3.pptx', '_blank')">
-                                <i class="fas fa-file-powerpoint"></i> Open Presentation
-                            </button>
-                        </div>
-                    </div>
-                `
-            },
-            'machine-learning': {
-                title: 'MACHINE LEARNING',
-                html: `
-                    <div class="category-content">
-                        <div class="item">
-                            <h3>Student Performance Analysis</h3>
-                            <p>This data approach student achievement in secondary education of two Portuguese schools. The data attributes include student grades, demographic, social and school related features and it was collected by using school reports and questionnaires. Two datasets are provided regarding the performance in two distinct subjects: Mathematics (mat) and Portuguese language (por).</p>
-                            <div class="tech-stack">Python · TensorFlow · Scikit-learn · Pandas · NumPy</div>
-                            <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/1Hkiwjkb4IhoFFaAQ8I0RPx7RTtUCEpp7?usp=sharing', '_blank')">
-                                <i class="fab fa-google"></i> Open in Google Colab
-                            </button>
-                        </div>
-                        <div class="item">
-                          <h3>Open Rocket Experiment</h3>
-                            <p>A rocket with swept, trapezoidal fins will achieve a higher altitude than an otherwise identical rocket with elliptical fins due to lower drag.</p>
-                       <button class="action-btn" onclick="window.open('https://colab.research.google.com/drive/13lgy9yLNK3K7lR9ra9S1nd2pO8aIAjjU?usp=sharing', '_blank')">
-                                <i class="fab fa-google"></i> Open in Google Colab
-                            </button>
-                        </div>
-                `
-            },
+
             'reports': {
                 title: 'REPORTS',
                 html: `
@@ -861,6 +867,7 @@ likelihood of unique consequences.</p>
         modal.style.display = 'block';
     }
 });
+
 
 
 
